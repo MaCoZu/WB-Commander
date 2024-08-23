@@ -11,6 +11,8 @@ app = Dash(
     external_stylesheets=[dbc.themes.LUX],
 )
 
+# Declare server for Heroku deployment. Needed for Procfile.
+server = app.server
 
 country_list = [
     {
@@ -6574,4 +6576,5 @@ def make_graph2(indicator_code, country_list):
 
 
 if __name__ == "__main__":
-     app.run_server(host='127.0.0.1', port=8050, debug=True)
+     app.run_server(debug=True)
+    #  app.run_server(host='127.0.0.1', port=8050, debug=True)
