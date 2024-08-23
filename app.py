@@ -4,7 +4,6 @@ from pydoc import classname
 import dash_bootstrap_components as dbc
 import utils
 from dash import Dash, Input, Output, State, callback, dcc, html
-from dash_bootstrap_components._components.Container import Container
 
 app = Dash(
     __name__,
@@ -14,182 +13,6 @@ app = Dash(
 
 
 country_list = [
-    {
-        "label": html.Span(
-            ["REGIONS", html.Hr()], style={"color": "green", "font-size": 20}
-        ),
-        "value": "REGIONS",
-        "search": "Regions",
-    },
-    {
-        "label": "Africa Eastern and Southern",
-        "value": "AFE",
-        "search": "Africa Eastern and Southern",
-    },
-    {"label": "Africa", "value": "AFR", "search": "Africa"},
-    {
-        "label": "Africa Western and Central",
-        "value": "AFW",
-        "search": "Africa Western and Central",
-    },
-    {"label": "Arab World", "value": "ARB", "search": "Arab World"},
-    {
-        "label": "Sub-Saharan Africa (IFC classification)",
-        "value": "CAA",
-        "search": "Sub-Saharan Africa (IFC classification)",
-    },
-    {
-        "label": "East Asia and the Pacific (IFC classification)",
-        "value": "CEA",
-        "search": "East Asia and the Pacific (IFC classification)",
-    },
-    {
-        "label": "Central Europe and the Baltics",
-        "value": "CEB",
-        "search": "Central Europe and the Baltics",
-    },
-    {
-        "label": "Europe and Central Asia (IFC classification)",
-        "value": "CEU",
-        "search": "Europe and Central Asia (IFC classification)",
-    },
-    {
-        "label": "Latin America and the Caribbean (IFC classification)",
-        "value": "CLA",
-        "search": "Latin America and the Caribbean (IFC classification)",
-    },
-    {
-        "label": "Middle East and North Africa (IFC classification)",
-        "value": "CME",
-        "search": "Middle East and North Africa (IFC classification)",
-    },
-    {
-        "label": "South Asia (IFC classification)",
-        "value": "CSA",
-        "search": "South Asia (IFC classification)",
-    },
-    {
-        "label": "Caribbean small states",
-        "value": "CSS",
-        "search": "Caribbean small states",
-    },
-    {
-        "label": "East Asia & Pacific (excluding high income)",
-        "value": "EAP",
-        "search": "East Asia & Pacific (excluding high income)",
-    },
-    {
-        "label": "Early-demographic dividend",
-        "value": "EAR",
-        "search": "Early-demographic dividend",
-    },
-    {"label": "East Asia & Pacific", "value": "EAS", "search": "East Asia & Pacific"},
-    {
-        "label": "Europe & Central Asia (excluding high income)",
-        "value": "ECA",
-        "search": "Europe & Central Asia (excluding high income)",
-    },
-    {
-        "label": "Europe & Central Asia",
-        "value": "ECS",
-        "search": "Europe & Central Asia",
-    },
-    {"label": "Euro area", "value": "EMU", "search": "Euro area"},
-    {"label": "European Union", "value": "EUU", "search": "European Union"},
-    {
-        "label": "Fragile and conflict affected situations",
-        "value": "FCS",
-        "search": "Fragile and conflict affected situations",
-    },
-    {
-        "label": "Heavily indebted poor countries (HIPC)",
-        "value": "HPC",
-        "search": "Heavily indebted poor countries (HIPC)",
-    },
-    {
-        "label": "Latin America & Caribbean (excluding high income)",
-        "value": "LAC",
-        "search": "Latin America & Caribbean (excluding high income)",
-    },
-    {
-        "label": "Latin America & Caribbean ",
-        "value": "LCN",
-        "search": "Latin America & Caribbean ",
-    },
-    {
-        "label": "Least developed countries: UN classification",
-        "value": "LDC",
-        "search": "Least developed countries: UN classification",
-    },
-    {
-        "label": "Late-demographic dividend",
-        "value": "LTE",
-        "search": "Late-demographic dividend",
-    },
-    {
-        "label": "Middle East (developing only)",
-        "value": "MDE",
-        "search": "Middle East (developing only)",
-    },
-    {
-        "label": "Middle East & North Africa",
-        "value": "MEA",
-        "search": "Middle East & North Africa",
-    },
-    {
-        "label": "Middle East & North Africa (excluding high income)",
-        "value": "MNA",
-        "search": "Middle East & North Africa (excluding high income)",
-    },
-    {"label": "North America", "value": "NAC", "search": "North America"},
-    {"label": "North Africa", "value": "NAF", "search": "North Africa"},
-    {
-        "label": "Non-resource rich Sub-Saharan Africa countries",
-        "value": "NRS",
-        "search": "Non-resource rich Sub-Saharan Africa countries",
-    },
-    {"label": "OECD members", "value": "OED", "search": "OECD members"},
-    {"label": "Other small states", "value": "OSS", "search": "Other small states"},
-    {
-        "label": "Pre-demographic dividend",
-        "value": "PRE",
-        "search": "Pre-demographic dividend",
-    },
-    {
-        "label": "Pacific island small states",
-        "value": "PSS",
-        "search": "Pacific island small states",
-    },
-    {
-        "label": "Post-demographic dividend",
-        "value": "PST",
-        "search": "Post-demographic dividend",
-    },
-    {
-        "label": "Resource rich Sub-Saharan Africa countries",
-        "value": "RRS",
-        "search": "Resource rich Sub-Saharan Africa countries",
-    },
-    {"label": "South Asia", "value": "SAS", "search": "South Asia"},
-    {
-        "label": "Sub-Saharan Africa (excluding high income)",
-        "value": "SSA",
-        "search": "Sub-Saharan Africa (excluding high income)",
-    },
-    {"label": "Sub-Saharan Africa ", "value": "SSF", "search": "Sub-Saharan Africa "},
-    {"label": "Small states", "value": "SST", "search": "Small states"},
-    {
-        "label": "Sub-Saharan Africa excluding South Africa",
-        "value": "SXZ",
-        "search": "Sub-Saharan Africa excluding South Africa",
-    },
-    {"label": "World", "value": "WLD", "search": "World"},
-    {
-        "label": "Sub-Saharan Africa excluding South Africa and Nigeria",
-        "value": "XZN",
-        "search": "Sub-Saharan Africa excluding South Africa and Nigeria",
-    },
-    {"label": "", "value": ""},
     {
         "label": html.Span(
             ["COUNTRIES", html.Hr()], style={"color": "green", "font-size": 20}
@@ -462,6 +285,184 @@ country_list = [
     {"label": "South Africa", "value": "ZAF", "search": "South Africa"},
     {"label": "Zambia", "value": "ZMB", "search": "Zambia"},
     {"label": "Zimbabwe", "value": "ZWE", "search": "Zimbabwe"},
+    
+    {"label": "", "value": ""},
+    
+    {
+        "label": html.Span(
+            ["REGIONS", html.Hr()], style={"color": "green", "font-size": 20}
+        ),
+        "value": "REGIONS",
+        "search": "Regions",
+    },
+    {
+        "label": "Africa Eastern and Southern",
+        "value": "AFE",
+        "search": "Africa Eastern and Southern",
+    },
+    {"label": "Africa", "value": "AFR", "search": "Africa"},
+    {
+        "label": "Africa Western and Central",
+        "value": "AFW",
+        "search": "Africa Western and Central",
+    },
+    {"label": "Arab World", "value": "ARB", "search": "Arab World"},
+    {
+        "label": "Sub-Saharan Africa (IFC classification)",
+        "value": "CAA",
+        "search": "Sub-Saharan Africa (IFC classification)",
+    },
+    {
+        "label": "East Asia and the Pacific (IFC classification)",
+        "value": "CEA",
+        "search": "East Asia and the Pacific (IFC classification)",
+    },
+    {
+        "label": "Central Europe and the Baltics",
+        "value": "CEB",
+        "search": "Central Europe and the Baltics",
+    },
+    {
+        "label": "Europe and Central Asia (IFC classification)",
+        "value": "CEU",
+        "search": "Europe and Central Asia (IFC classification)",
+    },
+    {
+        "label": "Latin America and the Caribbean (IFC classification)",
+        "value": "CLA",
+        "search": "Latin America and the Caribbean (IFC classification)",
+    },
+    {
+        "label": "Middle East and North Africa (IFC classification)",
+        "value": "CME",
+        "search": "Middle East and North Africa (IFC classification)",
+    },
+    {
+        "label": "South Asia (IFC classification)",
+        "value": "CSA",
+        "search": "South Asia (IFC classification)",
+    },
+    {
+        "label": "Caribbean small states",
+        "value": "CSS",
+        "search": "Caribbean small states",
+    },
+    {
+        "label": "East Asia & Pacific (excluding high income)",
+        "value": "EAP",
+        "search": "East Asia & Pacific (excluding high income)",
+    },
+    {
+        "label": "Early-demographic dividend",
+        "value": "EAR",
+        "search": "Early-demographic dividend",
+    },
+    {"label": "East Asia & Pacific", "value": "EAS", "search": "East Asia & Pacific"},
+    {
+        "label": "Europe & Central Asia (excluding high income)",
+        "value": "ECA",
+        "search": "Europe & Central Asia (excluding high income)",
+    },
+    {
+        "label": "Europe & Central Asia",
+        "value": "ECS",
+        "search": "Europe & Central Asia",
+    },
+    {"label": "Euro area", "value": "EMU", "search": "Euro area"},
+    {"label": "European Union", "value": "EUU", "search": "European Union"},
+    {
+        "label": "Fragile and conflict affected situations",
+        "value": "FCS",
+        "search": "Fragile and conflict affected situations",
+    },
+    {
+        "label": "Heavily indebted poor countries (HIPC)",
+        "value": "HPC",
+        "search": "Heavily indebted poor countries (HIPC)",
+    },
+    {
+        "label": "Latin America & Caribbean (excluding high income)",
+        "value": "LAC",
+        "search": "Latin America & Caribbean (excluding high income)",
+    },
+    {
+        "label": "Latin America & Caribbean ",
+        "value": "LCN",
+        "search": "Latin America & Caribbean ",
+    },
+    {
+        "label": "Least developed countries: UN classification",
+        "value": "LDC",
+        "search": "Least developed countries: UN classification",
+    },
+    {
+        "label": "Late-demographic dividend",
+        "value": "LTE",
+        "search": "Late-demographic dividend",
+    },
+    {
+        "label": "Middle East (developing only)",
+        "value": "MDE",
+        "search": "Middle East (developing only)",
+    },
+    {
+        "label": "Middle East & North Africa",
+        "value": "MEA",
+        "search": "Middle East & North Africa",
+    },
+    {
+        "label": "Middle East & North Africa (excluding high income)",
+        "value": "MNA",
+        "search": "Middle East & North Africa (excluding high income)",
+    },
+    {"label": "North America", "value": "NAC", "search": "North America"},
+    {"label": "North Africa", "value": "NAF", "search": "North Africa"},
+    {
+        "label": "Non-resource rich Sub-Saharan Africa countries",
+        "value": "NRS",
+        "search": "Non-resource rich Sub-Saharan Africa countries",
+    },
+    {"label": "OECD members", "value": "OED", "search": "OECD members"},
+    {"label": "Other small states", "value": "OSS", "search": "Other small states"},
+    {
+        "label": "Pre-demographic dividend",
+        "value": "PRE",
+        "search": "Pre-demographic dividend",
+    },
+    {
+        "label": "Pacific island small states",
+        "value": "PSS",
+        "search": "Pacific island small states",
+    },
+    {
+        "label": "Post-demographic dividend",
+        "value": "PST",
+        "search": "Post-demographic dividend",
+    },
+    {
+        "label": "Resource rich Sub-Saharan Africa countries",
+        "value": "RRS",
+        "search": "Resource rich Sub-Saharan Africa countries",
+    },
+    {"label": "South Asia", "value": "SAS", "search": "South Asia"},
+    {
+        "label": "Sub-Saharan Africa (excluding high income)",
+        "value": "SSA",
+        "search": "Sub-Saharan Africa (excluding high income)",
+    },
+    {"label": "Sub-Saharan Africa ", "value": "SSF", "search": "Sub-Saharan Africa "},
+    {"label": "Small states", "value": "SST", "search": "Small states"},
+    {
+        "label": "Sub-Saharan Africa excluding South Africa",
+        "value": "SXZ",
+        "search": "Sub-Saharan Africa excluding South Africa",
+    },
+    {"label": "World", "value": "WLD", "search": "World"},
+    {
+        "label": "Sub-Saharan Africa excluding South Africa and Nigeria",
+        "value": "XZN",
+        "search": "Sub-Saharan Africa excluding South Africa and Nigeria",
+    },
 ]
 
 indicator_list = [
