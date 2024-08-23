@@ -1,24 +1,27 @@
-.dashboard-container {
-    /* height: '100vh';  
-    width: '100vw';  
-    border: 1px solid #cccccc;
-    border-radius: 10px; 
-    display: 'flex';
-    flex-direction: 'column';
-    justify-content: 'center';
-    align-items: 'center';
-    overflow: 'hidden';
-    padding: '20px';
-    box-sizing: 'border-box';
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    margin-bottom: 50px; */
-} 
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+@media only screen and (max-width: 768px) {
+    /* Reduce font size for smaller screens */
+    #title {
+        font-size: 0px; /* Adjust font size as needed */
+        visibility: hidden; /* Hide the original text */
+        display: none;
+    }
+
+    #title::after {
+        content: "WBC"; /* Replace with short text */
+        visibility: visible; /* Make the new content visible */
+        font-size: 24px; /* Adjust as needed */
+    }
+}
 
 #title{
-    font-size: 20;
-    text-wrap: nowrap;
+    font-size: 24px;
 }
 
 #logo{
@@ -30,6 +33,11 @@
     padding: 8px;
     /* height: 10px; */
     /* width: 20px; */
+}
+
+#offcanvas {
+    max-height: 100vh;  /* Ensures the drawer doesn’t exceed the viewport height */
+    overflow-y: auto;   /* Adds a scroll if the content exceeds the height */
 }
 
 .graph-card {

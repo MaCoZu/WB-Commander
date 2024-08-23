@@ -6247,7 +6247,7 @@ indicator1 = html.Div(
 control_panel1 = dbc.Card(
     dbc.CardBody(
         [country1, indicator1],
-        className="bg-light",
+        className="control-panel",
     ),
 )
 
@@ -6298,7 +6298,7 @@ indicator2 = html.Div(
 control_panel2 = dbc.Card(
     dbc.CardBody(
         [country2, indicator2],
-        className="bg-light",
+        className="control-panel",
     ),
 )
 
@@ -6347,7 +6347,7 @@ indicator3 = html.Div(
 control_panel3 = dbc.Card(
     dbc.CardBody(
         [country3, indicator3],
-        className="bg-light",
+        className="control-panel",
     ),
 )
 
@@ -6393,7 +6393,7 @@ indicator4 = html.Div(
 control_panel4 = dbc.Card(
     dbc.CardBody(
         [country4, indicator4],
-        className="bg-light",
+        className="control-panel",
     ),
 )
 
@@ -6460,6 +6460,7 @@ offcanvas = html.Div(
         dbc.Offcanvas(
             [accordion],
             id="offcanvas",
+            style={"maxHeight": "100vh", "overflowY": "auto"},
             title="Choose what you want to plot.",
             placement="end",
             is_open=False,
@@ -6474,19 +6475,17 @@ logo_base64 = base64.b64encode(open("./img/logo_.png", "rb").read()).decode("asc
 
 navbar = dbc.Nav(
     [
-        dbc.NavItem(
+        html.A(
             html.Img(src="data:image/png;base64,{}".format(logo_base64), id='logo'),
-            class_name="text-start mx-2",
+            href="https://macozu.github.io/index.html",  
+            target="_blank",  
         ),
         dbc.NavItem(
-            html.H2("World Bank Commander", id="title"), class_name="text-center pt-2 mx-2"
+            html.H2("World Bank Commander", id="title"), class_name="text-center pt-2 mx-1"
         ),
         dbc.NavItem(offcanvas, class_name="text-end mx-2"),
     ],
-    style={"align": "center"},
-    class_name="pt-4",
-    justified=True,
-    
+    class_name="navbar",
 )
 
 
@@ -6495,15 +6494,15 @@ app.layout = dbc.Container(
         navbar,
         dbc.Row(
             [
-                dbc.Col(graph1, width=6),
-                dbc.Col(graph2, width=6),
+                dbc.Col(graph1, xs=12, sm=12, md=6),
+                dbc.Col(graph2, xs=12, sm=12, md=6),
             ],
             className="px-2 py-2",
         ),
         dbc.Row(
             [
-                dbc.Col(graph3, width=6),
-                dbc.Col(graph4, width=6),
+                dbc.Col(graph3, xs=12, sm=12, md=6),
+                dbc.Col(graph4, xs=12, sm=12, md=6),
             ],
             className="p-2",
         ),
@@ -6576,5 +6575,5 @@ def make_graph2(indicator_code, country_list):
 
 
 if __name__ == "__main__":
-     app.run_server(debug=True)
-    #  app.run_server(host='127.0.0.1', port=8050, debug=True)
+    #  app.run_server(debug=True)
+     app.run_server(host='127.0.0.1', port=8050, debug=True)
