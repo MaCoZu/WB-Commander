@@ -1,0 +1,57 @@
+.dashboard-container {
+    /* height: '100vh';  
+    width: '100vw';  
+    border: 1px solid #cccccc;
+    border-radius: 10px; 
+    display: 'flex';
+    flex-direction: 'column';
+    justify-content: 'center';
+    align-items: 'center';
+    overflow: 'hidden';
+    padding: '20px';
+    box-sizing: 'border-box';
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px; */
+} 
+
+#title{
+    font-size: 20;
+    text-wrap: nowrap;
+}
+
+#logo{
+    height:44px;
+}
+
+#open-offcanvas{
+    margin-top: 0%;
+    padding: 8px;
+    /* height: 10px; */
+    /* width: 20px; */
+}
+
+.graph-card {
+    height: 40vh;
+    width: 100%;
+}
+
+/* Ensure the graph container within graph card is responsive */
+.graph-card .graph-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Adjust the card body within graph card */
+.graph-card .card-body {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+
