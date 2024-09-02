@@ -13,11 +13,6 @@
         display: none;
     }
 
-    #title::after {
-        content: "WBC"; /* Replace with short text */
-        visibility: visible; /* Make the new content visible */
-        font-size: 24px; /* Adjust as needed */
-    }
 }
 
 #title{
@@ -26,6 +21,7 @@
 
 #logo{
     height:44px;
+    padding-left: 5px;
 }
 
 #open-offcanvas{
@@ -40,6 +36,7 @@
     overflow-y: auto;   /* Adds a scroll if the content exceeds the height */
 }
 
+ /* 4 graphs should fit on the screen   */
 .graph-card {
     height: 40vh;
     width: 100%;

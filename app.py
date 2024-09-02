@@ -6416,6 +6416,7 @@ stack2 = dbc.Stack(
         html.Div(control_panel4),
     ],
     gap=4,
+    
 )
 
 
@@ -6432,13 +6433,13 @@ accordion = html.Div(
                             "Use the search function to select countries and indicators."
                         ),
                         html.P(
-                            "Graph are interactive: you can download them as png file or click the legend items to toggle countries."
+                            "Graphs are interactive: you can download them as png file or click the legend items to toggle countries."
                         ),
                         html.P(
-                            "Sometimes you will encounter gaps in the graphs, then the world bank has no data for this time, indicator or country."
+                            "Sometimes you will encounter gaps in the graphs, then the world bank has no data for this time, indicator, country or combination of them."
                         ),
                         html.P(
-                            "If your graph is a straight line the indciator is either constant or there is just a single number that doesn't change over the years."
+                            "If your graph is a straight line the indciator is probably a single number (constant) that doesn't change over the years."
                         ),
                     ]
                 ),
@@ -6483,7 +6484,7 @@ navbar = dbc.Nav(
         dbc.NavItem(
             html.H2("World Bank Commander", id="title"), class_name="text-center pt-2 mx-1"
         ),
-        dbc.NavItem(offcanvas, class_name="text-end mx-2"),
+        dbc.NavItem(offcanvas, class_name="text-end mx-2", id="offcanvas-nav"),
     ],
     class_name="navbar",
 )
