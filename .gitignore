@@ -1,5 +1,6 @@
 #files
 utils.ipynb
+*.pyc
 
 # folder
 data/
